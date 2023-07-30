@@ -1,19 +1,49 @@
-select last_name, job_id, department_id, hire_date
-from employees
-order by hire_date;
+SELECT
+    last_name,
+    job_id,
+    department_id,
+    hire_date
+FROM
+    employees
+ORDER BY
+    hire_date;
 
-select last_name, job_id , department_id, hire_date
-from employees
-order by hire_date DESC;
+SELECT
+    last_name,
+    job_id,
+    department_id,
+    hire_date
+FROM
+    employees
+ORDER BY
+    hire_date DESC;
 
-select employee_id, last_name, salary*12 annsal
-from employees
-order by annsal;
+SELECT
+    employee_id,
+    last_name,
+    salary * 12 annsal
+FROM
+    employees
+ORDER BY
+    annsal;
 
-select last_name, job_id, department_id, hire_date
-from employees
-order by 3;
+SELECT
+    last_name,
+    job_id,
+    department_id,
+    hire_date
+FROM
+    employees
+ORDER BY
+    3;
 
-select last_name, job_id, department_id, salary
-from employees
-order by department_id, salary desc;
+SELECT
+    last_name,
+    job_id,
+    department_id,
+    salary
+FROM
+    employees
+ORDER BY
+    department_id,
+    salary DESC;
