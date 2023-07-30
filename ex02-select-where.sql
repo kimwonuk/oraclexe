@@ -98,24 +98,50 @@ FROM
 WHERE
     last_name LIKE '_o%';
 
-select employee_id, last_name,job_id
-from employees
-where job_id like '%SA\_%' escape '\';
+SELECT
+    employee_id,
+    last_name,
+    job_id
+FROM
+    employees
+WHERE
+    job_id LIKE '%SA\_%' ESCAPE '\';
 
-select last_name, manager_id
-from employees
-where manager_id is null;
+SELECT
+    last_name,
+    manager_id
+FROM
+    employees
+WHERE
+    manager_id IS NULL;
 
-select employee_id , last_name, job_id, salary
-from employees
-where salary >= 10000
-and job_id like'%man%';
+SELECT
+    employee_id,
+    last_name,
+    job_id,
+    salary
+FROM
+    employees
+WHERE
+        salary >= 10000
+    AND job_id LIKE '%man%';
 
-select employee_id , last_name, job_id, salary, 10000*12*1200 as test
-from employees
-where salary >= 10000
-or job_id like '%man%';
+SELECT
+    employee_id,
+    last_name,
+    job_id,
+    salary,
+    10000 * 12 * 1200 AS test
+FROM
+    employees
+WHERE
+    salary >= 10000
+    OR job_id LIKE '%man%';
 
-select last_name, job_id
-from employees
-where job_id not in ('IT_PROG' , 'ST_CLERK','SA_REP');
+SELECT
+    last_name,
+    job_id
+FROM
+    employees
+WHERE
+    job_id NOT IN ( 'IT_PROG', 'ST_CLERK', 'SA_REP' );
