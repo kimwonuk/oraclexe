@@ -21,5 +21,4 @@ where salary>=5000;
 select first_name,hire_date
 from employees
 where hire_date > '05/01/01' ;
-
---너무 쉽다 ez ㅋ
+--ez ㅋ
