@@ -1,0 +1,98 @@
+select employee_id , last_name , department_id
+from employees
+where lower(last_name) = 'higgins';
+
+select upper('higgins') from dual;
+
+select employee_id , last_name , department_id
+from employees
+where last_name = INITCAP('higgins');
+
+select 'hellow' || 'world' from dual;
+select concat('Hello' , 'world') from dual;
+
+select substr('HelloWorld' , 1, 5) from dual;
+
+select length('HelloWorld') from dual;
+
+select instr('HelloWorld' , 'W') from dual;
+
+select Lpad('salary' , 10 , '*') from dual;
+
+select Rpad('salary' , 10 , '*') from dual;
+
+select replace('Jack and Jue' , 'J' , 'BL')from dual;
+
+select trim('H' from 'HelloWorld') from dual;
+
+select round(45.926,2) from dual;
+
+select trunc(45.926,2) from dual;
+
+select Mod(1600,300) from dual;
+
+select ceil(45.923) from dual;
+
+select sysdate from dual;
+
+select last_name , (sysdate - hire_date) / 7 as weeks
+from employees
+where department_id = 90;
+
+select Months_between(to_date('2017-12-22' , ' yyyy-mm-dd') , to_date('2017-05-22' , 'yyyy-mm-dd')) from dual;
+select add_months(to_date('2022-12-16' , 'yyyy-mm-dd') , 1 ) from dual;
+select next_day(to_date('2023-08-05' , ' yyyy-mm-dd') , 7 ) from dual;
+select last_day(to_date('2023-08-05' , 'yyyy-mm-dd')) from dual;
+
+select round(to_date('2023-08-16' ,'yyyy-mm-dd') , ' month') from dual;
+
+select last_name, to_char(hire_date , ' yyyy/mm/dd HH24: Mi:ss') as Hiredate
+from employees;
+
+select to_char(systimestamp, 'yyyy-mm-dd HH24:mi:ss.ff2') from dual;
+
+select to_char(salary , 'L99,999.00') salary
+from employees
+where last_name = 'Ernst';
+
+select last_name , to_char(hire_date, 'yyyy-mm-dd')
+from employees
+where hire_date < to_date('2005-01-01' , ' yyyy-mm-dd');
+
+select last_name, upper(concat(substr(last_name,1,8) , '_us'))
+from employees
+where department_id = 60;
+
+select last_name , salary , nvl(commission_pct, 0) ,
+    (salary *12) + (salary *12 * nvl(commission_pct, 0 )) as An_sal
+from employees;
+
+select last_name , salary , commission_pct,
+    NVL2(commission_pct, 'SAL+COMM' , 'SAL') as income
+from employees
+where department_id in (50,80);
+
+select first_name, Length(first_name) as expr1,
+        last_name , length(last_name) as expr2
+        nullif(length(first_name) , length(last_name)) as result
+from employees;
+
+select last_name , employee_id
+    coalesce(to_char(commission_pct), to_char(manager_id) , 'No commission and no manager')
+from employees;
+
+select last_name , job_id , salary,
+    case job_id
+        when 'it_PROG' then 1.10 * salary
+        when 'ST_CLERK' then 1.15 * salary
+        when 'SA_REP' then 1.20 *salary
+        ELSE salary
+    end as revised_salary
+from employees;
+
+select last_name, job_id, salary,
+    decode(job_id, 'it_prog' , 1.10 * salary,
+                            'st_clerk', 1.15 * salary,
+                            'sa_rep' , 1.20 * salary,
+                            salary ) as revised_salary
+from employees;
