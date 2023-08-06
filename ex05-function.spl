@@ -97,4 +97,3 @@ select last_name, job_id, salary,
                             salary ) as revised_salary
 from employees;
 
---»Ï
