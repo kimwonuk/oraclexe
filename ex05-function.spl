@@ -96,3 +96,5 @@ select last_name, job_id, salary,
                             'sa_rep' , 1.20 * salary,
                             salary ) as revised_salary
 from employees;
+
+--»Ï
